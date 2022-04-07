@@ -1,20 +1,68 @@
 const Buttons = (props) => {
-    const [setFunds, setCoffee, setBeans, setDemand] = props.functions;
-   
-    const updateBeans = () => {
+  const [setFunds, setCoffee, setBeans, setDemand, setCoffeePrice] = props.functions;
+  const [funds, coffee, beans, demand, coffeePrice] = props.values;
 
-        setFunds((currFunds) => {})
-        setBeans((currBeans)=> {
-            return currBeans + 1000;
-        })
+  const updateBeans = () => {
+    if (funds >= 6000) {
+      setFunds((currFunds) => {
+        currFunds - 6000;
+      });
+      setBeans((currBeans) => {
+        return currBeans + 10000;
+      });
+    } else {
+      // handle not having enough funds later.
+      console.log('not enough funds');
     }
-    
-    return (<section>
-        <button >Raise Price Button</button>
-        <button>Lower Price</button>
-        <button onClick={updateBeans}>Buy Beans</button>
-        <button>Make Coffee</button>
-        </section>);
-}
+  };
+
+  const makeCoffee = () => {
+    if (beans >= 50) {
+      setBeans((currBeans) => {
+        return currBeans - 50;
+      });
+      setCoffee((currCoffee) => {
+        return currCoffee + 1;
+      });
+    }
+  };
+
+  const raisePrice = () => {
+    setCoffeePrice((currPrice) => {
+      decreaseDemand();
+      return currPrice + 10;
+    });
+  };
+
+  const lowerPrice = () => {
+    setCoffeePrice((currPrice) => {
+      increaseDemand();
+      return currPrice - 10;
+    });
+  };
+
+  const increaseDemand = () => {
+    setDemand((currDemand) => {
+      // handle negative currentDemand
+      return currDemand + 1;
+    });
+  };
+
+  const decreaseDemand = () => {
+    setDemand((currDemand) => {
+      // handle negative currentDemand
+      return currDemand - 1;
+    });
+  };
+
+  return (
+    <section>
+      <button onClick={raisePrice}>Raise Price</button>
+      <button onClick={lowerPrice}>Lower Price</button>
+      <button onClick={updateBeans}>Buy Beans</button>
+      <button onClick={makeCoffee}>Make Coffee</button>
+    </section>
+  );
+};
 
 export default Buttons;
