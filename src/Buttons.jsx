@@ -2,10 +2,28 @@ const Buttons = (props) => {
   const [setFunds, setCoffee, setBeans, setDemand, setCoffeePrice] = props.functions;
   const [funds, coffee, beans, demand, coffeePrice] = props.values;
 
+/*   const autoSell = () => {
+
+    let timeInMS = 4000;
+    setInterval(() => {
+      if(coffee >= 0) {
+        //let timeInMS = 60000 / demand;
+          setCoffee((currCoffee) => {
+            return currCoffee - 1;
+          })
+          setFunds((currentFunds) => {
+            return currentFunds + coffeePrice;
+          })
+        }
+      }, timeInMS)
+
+  } */
+  
+
   const updateBeans = () => {
     if (funds >= 6000) {
       setFunds((currFunds) => {
-        currFunds - 6000;
+        return currFunds - 6000;
       });
       setBeans((currBeans) => {
         return currBeans + 10000;
@@ -26,7 +44,7 @@ const Buttons = (props) => {
       });
     }
   };
-
+  
   const raisePrice = () => {
     setCoffeePrice((currPrice) => {
       decreaseDemand();
@@ -40,21 +58,22 @@ const Buttons = (props) => {
       return currPrice - 10;
     });
   };
-
+  
   const increaseDemand = () => {
     setDemand((currDemand) => {
       // handle negative currentDemand
       return currDemand + 1;
     });
   };
-
+  
   const decreaseDemand = () => {
     setDemand((currDemand) => {
       // handle negative currentDemand
       return currDemand - 1;
     });
   };
-
+  
+  
   return (
     <section>
       <button onClick={raisePrice}>Raise Price</button>
@@ -64,5 +83,4 @@ const Buttons = (props) => {
     </section>
   );
 };
-
 export default Buttons;

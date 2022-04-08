@@ -1,5 +1,6 @@
 import { useState } from 'react'; // import useEffect for demand functionality
 import Buttons from './Buttons';
+import Form from './Form';
 
 const Info = () => {
   const [funds, setFunds] = useState(10000);
@@ -8,12 +9,16 @@ const Info = () => {
   const [demand, setDemand] = useState(60);
   const [coffeePrice, setCoffeePrice] = useState(300);
 
+  const [ customerName, setCustomerName ] = useState('Enter Your Name');
+  const [ customerOrder, setCustomerOrder ] = useState(0);
+
   const arrayOfValues = [funds, coffee, beans, demand, coffeePrice];
   const arrayOfFuntions = [setFunds, setCoffee, setBeans, setDemand, setCoffeePrice];
 
   return (
     <section>
-      This is the info section
+      <p>Hello {customerName}</p>
+      <p>Your order is {customerOrder} coffees.</p>
       <section>
         <p>Funds: {funds}</p>
         <p>No. of Coffees: {coffee}</p>
@@ -22,6 +27,7 @@ const Info = () => {
         <p>Price of a Cup: {coffeePrice}</p>
       </section>
       <Buttons functions={arrayOfFuntions} values={arrayOfValues}></Buttons>
+      <Form setCustomerName={setCustomerName} setCustomerOrder={setCustomerOrder}/>
     </section>
   );
 };
