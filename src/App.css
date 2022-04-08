@@ -26,6 +26,7 @@
 section{
   max-width: fit-content;
   width: 60%;
+  min-width: 340px;
   background-color: rgb(217, 170, 108);
   border-radius: 15px;
 }
@@ -37,32 +38,42 @@ form {
   padding: 10px 0px 10px 0px;
 }
 
-
-p {
-  
-  
+.top-buttons {
+  width: 100%;
+  margin-top: 10px;
+}
+.bot-buttons {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
+
 button{
-  display:inline-block;
-  padding:0.3em 1.2em;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  display:inline-flex;
+  position: relative;
+  height: 2rem;
+  width: 8rem;
+  /* padding:0.3em 1.6em; */
+  margin: 5px;
+
   border:0.16em solid rgba(255,255,255,0);
   border-radius:2em;
   box-sizing: border-box;
   text-decoration:none;
   font-family:'Roboto',sans-serif;
-  font-weight:300;
+  font-weight:400;
   color:#682626;
   background-color: coral;
   text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-  text-align:center;
+  justify-content: center;
+  align-items: center;
   transition: all 0.2s;
 }
 button:hover{
   border-color: rgb(0, 0, 0);
 }
+
+
 
 /* @media all and (max-width:30em){
   button{
@@ -74,5 +85,13 @@ button:hover{
 #submit-button {
   color: rgb(255, 94, 0);
   background-color: rgb(68, 40, 195);
+  margin: 5px;
+}
+
+input {
+  color: rgb(255, 94, 0);
+  background-color: rgb(68, 40, 195);
+  border-radius: 2px;
+  margin: 10px;
 }
 

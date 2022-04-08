@@ -72,12 +72,14 @@ const Buttons = (props) => {
 
   return (
     <section>
-      <button className="btn" onClick={raisePrice}>
-        Raise Price
-      </button>
-      <button onClick={lowerPrice}>Lower Price</button>
-      <button onClick={updateBeans}>Buy Beans</button>
-      <button onClick={makeCoffee}>Make Coffee</button>
+      <div className="top-buttons">
+        <button onClick={raisePrice}>Raise Price</button>
+        <button onClick={updateBeans}>Buy Beans</button>
+      </div>
+      <div className="bot-buttons">
+        <button onClick={lowerPrice}>Lower Price</button>
+        <button onClick={makeCoffee}>Make Coffee</button>
+      </div>
     </section>
   );
 };

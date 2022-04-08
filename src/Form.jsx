@@ -48,7 +48,9 @@ const Form = (props) => {
         type="number"
         min="0"
       ></input>
-      <button id="submit-button" type="submit">Submit Order</button>
+      <button id="submit-button" type="submit">
+        Submit Order
+      </button>
     </form>
   );
 };
