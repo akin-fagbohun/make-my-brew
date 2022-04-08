@@ -17,10 +17,10 @@ const Info = () => {
   const arrayOfFuntions = [setFunds, setCoffee, setBeans, setDemand, setCoffeePrice];
 
   return (
-    <section>
-      <p>Hello {customerProfile.name}</p>
+    <section class="main-section">
+      <h3>Hello {customerProfile.name}</h3>
       <p>Your order is {customerProfile.order} coffees.</p>
-      <section>
+      <section class="inner-section">
         <p>Funds: {funds}</p>
         <p>No. of Coffees: {coffee}</p>
         <p>Available Beans : {beans} </p>
