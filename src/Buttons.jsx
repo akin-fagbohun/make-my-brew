@@ -2,23 +2,20 @@ const Buttons = (props) => {
   const [setFunds, setCoffee, setBeans, setDemand, setCoffeePrice] = props.functions;
   const [funds, coffee, beans, demand, coffeePrice] = props.values;
 
-/*   const autoSell = () => {
-
+  const autoSell = () => {
     let timeInMS = 4000;
     setInterval(() => {
-      if(coffee >= 0) {
+      if (coffee >= 0) {
         //let timeInMS = 60000 / demand;
-          setCoffee((currCoffee) => {
-            return currCoffee - 1;
-          })
-          setFunds((currentFunds) => {
-            return currentFunds + coffeePrice;
-          })
-        }
-      }, timeInMS)
-
-  } */
-  
+        setCoffee((currCoffee) => {
+          return currCoffee - 1;
+        });
+        setFunds((currentFunds) => {
+          return currentFunds + coffeePrice;
+        });
+      }
+    }, timeInMS);
+  };
 
   const updateBeans = () => {
     if (funds >= 6000) {
@@ -44,7 +41,7 @@ const Buttons = (props) => {
       });
     }
   };
-  
+
   const raisePrice = () => {
     setCoffeePrice((currPrice) => {
       decreaseDemand();
@@ -58,25 +55,26 @@ const Buttons = (props) => {
       return currPrice - 10;
     });
   };
-  
+
   const increaseDemand = () => {
     setDemand((currDemand) => {
       // handle negative currentDemand
       return currDemand + 1;
     });
   };
-  
+
   const decreaseDemand = () => {
     setDemand((currDemand) => {
       // handle negative currentDemand
       return currDemand - 1;
     });
   };
-  
-  
+
   return (
     <section>
-      <button onClick={raisePrice}>Raise Price</button>
+      <button className="btn" onClick={raisePrice}>
+        Raise Price
+      </button>
       <button onClick={lowerPrice}>Lower Price</button>
       <button onClick={updateBeans}>Buy Beans</button>
       <button onClick={makeCoffee}>Make Coffee</button>
